@@ -1,5 +1,6 @@
 # ifuckedyourmomscript
-An esoteric language I am making for fun
+
+An esoteric language I am making for fun. This language is inspired by brainfuck, and similar to assembly. With some modifications to the compiler, a very determined son of a bitch could create a very simple operating system kernel.
 
 # Basic Syntax
 
@@ -23,6 +24,10 @@ An esoteric language I am making for fun
 \' \- End comment
 
 # Advanced Syntax
+
+## Assembly convertion
+
+Each file is converted to a single assembly function. The name of the function will be at the top of the file on the first line.
 
 ## Set Registers Syntax
 

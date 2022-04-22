@@ -11,17 +11,16 @@ An esoteric language I am making for fun. This language is inspired by brainfuck
 \> \- Move to next memory cell \
 \< \- Move to last memory cell \
 \` \- Set registers (more details later) \
-\@ \- Call the system (actually @s it on twitter.com, but whatever) \
+\@ \- Call the system, and then places the return value in the next memory cell (actually @s it on twitter.com, but whatever) \
 \( \- Start while loop \
 \) \- End while loop \
 \{ \- Start if loop \
 \} \- End if loop \
 \: \- Compare the active memory cell and next memory cell \
-\$ \- Gets user input \
-\! \- Easy crash system \
+\$ \- Gets user input into the active memory cell \
+\! \- Bitshifts the current active memory cell to the left by the next memory cell \
+\? \- Bitshifts the current active memory cell to the right by the last active memory cell \
 \~ \- Easy Segfault (only way to exit (unless you are smart)) \
-\" \- Start comment \
-\' \- End comment
 
 # Advanced Syntax
 

@@ -10,28 +10,30 @@ An esoteric language I am making for fun. This language is inspired by brainfuck
 \\ \- Divide active memory cell by next memory cell \
 \> \- Move to next memory cell \
 \< \- Move to last memory cell \
-\` \- Set registers (more details later) \
-\@ \- Call the system, and then places the return value in the next memory cell (actually @s it on twitter.com, but whatever) \
 \( \- Start while loop \
 \) \- End while loop \
 \{ \- Start if loop \
 \} \- End if loop \
-\: \- Compare the active memory cell and next memory cell \
+\@ \- Print character from active memory cell \
 \$ \- Gets user input into the active memory cell \
 \! \- Bitshifts the current active memory cell to the left by the next memory cell \
 \? \- Bitshifts the current active memory cell to the right by the last active memory cell \
+\a \- Sets the varible a to the active memory cell \
+\b \- Sets the varible b to the active memory cell \
+\c \- Sets the varible c to the active memory cell \
+\d \- Sets the varible d to the active memory cell \
+\e \- Sets the varible e to the active memory cell \
+\f \- Sets the varible f to the active memory cell \
+\A \- Sets the active memory cell to the varible a \
+\B \- Sets the active memory cell to the varible b \
+\C \- Sets the active memory cell to the varible c \
+\D \- Sets the active memory cell to the varible d \
+\E \- Sets the active memory cell to the varible e \
+\F \- Sets the active memory cell to the varible f \
 \~ \- Easy Segfault (only way to exit (unless you are smart)) \
 
 # Advanced Syntax
 
-## Assembly convertion
-
-Each file is converted to a single assembly function. The name of the function will be at the top of the file on the first line.
-
-## Set Registers Syntax
-
-Sets up the registers for a system call. The last active memory cell is set to the eax register. The second to last active memory cell is set to the edi register. The thrid to last active memory cell is set to the esi register. The fourth to last active memory cell is set to the edx register.
-
 ## While loop syntax
 
-While loops repeat if the last comparison made evaluates to not equal. Comparisons must be made before the end of loop or else it is fucking meaning less.
+While loops repeat if the current active memory cell is unequal to zero.

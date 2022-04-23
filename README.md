@@ -18,6 +18,7 @@ An esoteric language I am making for fun. This language is inspired by brainfuck
 \$ \- Gets user input into the active memory cell \
 \! \- Bitshifts the current active memory cell to the left by the next memory cell \
 \? \- Bitshifts the current active memory cell to the right by the last active memory cell \
+\~ \- Easy Segfault (only way to exit (unless you are smart)) \
 \a \- Sets the varible a to the active memory cell \
 \b \- Sets the varible b to the active memory cell \
 \c \- Sets the varible c to the active memory cell \
@@ -30,9 +31,10 @@ An esoteric language I am making for fun. This language is inspired by brainfuck
 \D \- Sets the active memory cell to the varible d \
 \E \- Sets the active memory cell to the varible e \
 \F \- Sets the active memory cell to the varible f \
-\~ \- Easy Segfault (only way to exit (unless you are smart)) \
 
 # Advanced Syntax
+
+If the function name is unequal to main it will return the value in f.
 
 ## While loop syntax
 

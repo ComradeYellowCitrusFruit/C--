@@ -30,7 +30,7 @@ B \- Sets the active memory cell to the varible b \
 C \- Sets the active memory cell to the varible c \
 D \- Sets the active memory cell to the varible d \
 E \- Sets the active memory cell to the varible e \
-F \- Sets the active memory cell to the varible f \
+F \- Sets the active memory cell to the varible f
 
 # Advanced Syntax
 

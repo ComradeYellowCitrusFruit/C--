@@ -2,7 +2,9 @@
 
 An esoteric language I am making for fun. This language is inspired by brainfuck, and similar to assembly. With some modifications to the compiler, a very determined son of a bitch could create a very simple operating system kernel.
 
-# Basic Syntax
+# Syntax
+
+## Basic Syntax
 
 \- \- Subtract from active memory cell \
 \+ \- Add to active memory cell \
@@ -32,10 +34,24 @@ D \- Sets the active memory cell to the varible d \
 E \- Sets the active memory cell to the varible e \
 F \- Sets the active memory cell to the varible f
 
-# Advanced Syntax
+## Advanced Syntax
 
 If the function name is unequal to main it will return the value in f.
 
-## While loop syntax
+### While loop syntax
 
 While loops repeat if the current active memory cell is unequal to zero.
+
+### If loop syntax
+
+If loops run if the current active memory cell is equal to zero.
+
+## Additional info
+
+File formats can be whatever you want, but they are recommended to be either .m or .mf.
+
+# Arguments
+
+-i or --input will designate the next argument as the input file to be processed. \
+-o or --output will designate the next argument as the output file to be created. If this argument is not found the default is out.c \
+-s or --segfault will tell the compiler to put a segfault character command at the end of the input, and also tells the compiler to exit using a segfault.

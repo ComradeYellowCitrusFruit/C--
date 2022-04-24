@@ -36,9 +36,9 @@ std::string c_commands[] =
     "ptr[offset] = f;"
 };
 
-std::string fileTemplate = "#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a = 0xDEADBEEF; int b = 0xDEADBEEF; int c = 0xDEADBEEF; int d = 0xDEADBEEF; int e = 0xDEADBEEF; int f = 0xDEADBEEF; int *ptr = (int*)malloc(4000); int offset = 0;\nint %s(void){%s}";
+std::string fileTemplate = "#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a; int b; int c; int d; int e; int f; int *ptr = (int*)malloc(4000); int offset = 0;\nint %s(void){%s}";
 
-void fileToC(std::string content, std::string filename)
+void fileToC(std::string content, std::string filename, bool nc)
 {
     FILE *fileC;
     std::string functionName;
@@ -52,24 +52,24 @@ void fileToC(std::string content, std::string filename)
     }
     content.erase(0, x);
     // Translate the code to C
+    printf("Translating code to C...\n");
     for(int i = 0; i < content.length(); i++)
     {
-        translation += commandToC(content[i]);
+        translation += commandToC(content[i], nc);
     }
-    if(functionName.c_str() == "main")
-        translation += "main();";
-    else
-        translation += "return f;";
+    translation += functionName.c_str();
+    translation += "();";
+    printf("Writing translated C code...\n");
     fileC = fopen(filename.c_str(), "w");
     // Write the file
     fprintf(fileC, fileTemplate.c_str(), functionName.c_str(), translation.c_str());
     // Close the file
     fclose(fileC);
 }
-std::string commandToC(char command)
+std::string commandToC(char command, bool nc)
 {
     // DO NOT IMPROVE THE FUCKING FORMATING I REPEAT DO NOT UNDO THE FUCKING FORMATING
-    static bool isCSeg = false;static char cDesignator = '`';if(isCSeg){std::string ret;ret += command;return ret;}if(strcmp(&command, &cDesignator)){isCSeg = !isCSeg;}
+    if(!nc){static bool isCSeg = false;static char cDesignator = '`';if(isCSeg){std::string ret;ret += command;return ret;}if(strcmp(&command, &cDesignator)){isCSeg = !isCSeg;}}
     for(int i = 0; i < 26; i++)
         if(strcmp(&command, &commands[i]) == 0)
             return c_commands[i];

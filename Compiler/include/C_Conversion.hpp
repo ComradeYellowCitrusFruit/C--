@@ -3,7 +3,7 @@
 
 #include <string>
 
-void fileToC(std::string content);
-std::string commandToC(char command);
+void fileToC(std::string content, std::string filename, bool nc);
+std::string commandToC(char command, bool nc);
 
 #endif

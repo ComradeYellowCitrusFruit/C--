@@ -3,7 +3,7 @@
 #include <cstdio>
 #include "C_Conversion.hpp"
 
-char commands[] = { '-', '+', '*', '\\', '>', '<', '(', ')', '{', '}', '@', '$', '!', '?', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F' };
+char commands[] = { '-', '+', '*', '\\', '>', '<', '(', ')', '{', '}', '@', '$', '!', '?', '~', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F' };
 
 std::string c_commands[] =
 {
@@ -68,6 +68,8 @@ void fileToC(std::string content, std::string filename)
 }
 std::string commandToC(char command)
 {
+    // DO NOT IMPROVE THE FUCKING FORMATING I REPEAT DO NOT UNDO THE FUCKING FORMATING
+    static bool isCSeg = false;static char cDesignator = '`';if(isCSeg){std::string ret;ret += command;return ret;}if(strcmp(&command, &cDesignator)){isCSeg = !isCSeg;}
     for(int i = 0; i < 26; i++)
         if(strcmp(&command, &commands[i]) == 0)
             return c_commands[i];

@@ -28,20 +28,20 @@ int main(int argc, char **argv)
     std::cout << "Processing Arguments...\n";
     for(int i = 0; i < argc; i++)
     {
-        if(strcmp(argv[i], args[0].c_str()) == 0 || strcmp(argv[i], args[1].c_str()) == 0)
+        if(strcmp(argv[i], args[0].c_str()) != 0 || strcmp(argv[i], args[1].c_str()) != 0)
         {
             inputFileName += argv[i+1];
         }
-        else if(strcmp(argv[i], args[2].c_str()) == 0 || strcmp(argv[i], args[3].c_str()) == 0)
+        else if(strcmp(argv[i], args[2].c_str()) != 0 || strcmp(argv[i], args[3].c_str()) != 0)
         {
             outputFileName.clear();
             outputFileName += argv[i+1];
         }
-        else if(strcmp(argv[i], args[4].c_str()) == 0 || strcmp(argv[i], args[5].c_str()) == 0)
+        else if(strcmp(argv[i], args[4].c_str()) != 0 || strcmp(argv[i], args[5].c_str()) != 0)
         {
             segfault = true;
         }
-        else if(strcmp(argv[i], args[6].c_str()) == 0 || strcmp(argv[i], args[7].c_str()) == 0)
+        else if(strcmp(argv[i], args[6].c_str()) != 0 || strcmp(argv[i], args[7].c_str()) != 0)
         {
             nc = true;
         }
@@ -56,7 +56,6 @@ int main(int argc, char **argv)
     if(segfault)
     {
         std::cout << "Exiting by triggering a segfault, have fun on the other side...\n";
-        printf("This process is %X...\n", 0xDEADBEEF);
         int *ptr = 0;
         *ptr = 0xDEADBEEF;
     }

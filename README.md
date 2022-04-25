@@ -48,7 +48,7 @@ If loops run if the current active memory cell is equal to zero.
 
 ## Additional info
 
-File formats can be whatever you want, but they are recommended to be either .m or .mf.
+File formats can be whatever you want, but they are recommended to be either .c-- or .cmm.
 
 # Arguments
 

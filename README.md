@@ -1,4 +1,4 @@
-# ifuckedyourmomscript
+# C--
 
 An esoteric language I am making for fun. This language is inspired by brainfuck, and similar to assembly. With some modifications to the compiler, a very determined son of a bitch could create a very simple operating system kernel.
 

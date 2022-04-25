@@ -36,7 +36,7 @@ F \- Sets the active memory cell to the varible f
 
 ## Advanced Syntax
 
-If the function name is unequal to main it will return the value in f.
+If the function name is unequal to main it will return a random number.
 
 ### While loop syntax
 

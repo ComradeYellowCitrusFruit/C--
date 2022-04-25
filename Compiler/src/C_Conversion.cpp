@@ -69,9 +69,9 @@ void fileToC(std::string content, std::string filename, bool nc)
 std::string commandToC(char command, bool nc)
 {
     // DO NOT IMPROVE THE FUCKING FORMATING I REPEAT DO NOT UNDO THE FUCKING FORMATING
-    if(!nc){static bool isCSeg = false;static char cDesignator = '`';if(isCSeg){std::string ret;ret += command;return ret;}if(strcmp(&command, &cDesignator)){isCSeg = !isCSeg;}}
+    if(!nc){static bool isCSeg = false;static char cDesignator = '`';if(isCSeg){std::string ret;ret += command;return ret;}if(strcmp(&command, &cDesignator) != 0){isCSeg = !isCSeg;}}
     for(int i = 0; i < 26; i++)
-        if(strcmp(&command, &commands[i]) == 0)
+        if(strcmp(&command, &commands[i]) != 0)
             return c_commands[i];
     std::string ret = "";
     return ret;

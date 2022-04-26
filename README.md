@@ -1,6 +1,6 @@
 # C--
 
-C-- (pronounced C minus minus) is an esoteric programming language I made. It is based on C, and compiles to C (I would make it compile to a raw binary, but I am not about reinvent the wheel and create my own compiler). It is somewhat similar to assembly. I plan on creating an interpreter for it.
+C-- (pronounced C minus minus) is an esoteric programming language I made. It is based on C, and compiles to a raw binary executible. It is somewhat similar to assembly. I plan on creating an interpreter for it.
 
 # Syntax
 

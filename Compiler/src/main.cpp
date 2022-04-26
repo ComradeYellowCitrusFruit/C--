@@ -7,7 +7,7 @@ extern "C" {
 #include "Compiler\include\Compile.h"
 }
 
-std::string args[] = 
+std::string args[8] = 
 { 
                 "-i",
                 "--input",
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     Content +=  *contentBuffer;
     if(segfault) Content += '~';
     std::cout << "Writing executible file...\n";
-    compile(fileToC(Content, nc).c_str(), outputFileName.c_str());
+    compile(&(char)*fileToC(Content, nc).c_str(), &(char)*outputFileName.c_str());
     fclose(inputFile);
     if(segfault)
     {

@@ -1,6 +1,6 @@
 #ifndef C_MINUS_MINUS_C_CONVERTER_H
 #define C_MINUS_MINUS_C_CONVERTER_H
 
-extern "C" int compile(char *C, char *outputName);
+int compile(char *C, char *outputName);
 
 #endif

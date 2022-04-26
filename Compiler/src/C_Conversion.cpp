@@ -36,13 +36,13 @@ std::string c_commands[] =
     "ptr[offset] = f;"
 };
 
-std::string fileTemplate = "#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a; int b; int c; int d; int e; int f; int *ptr = (int*)malloc(4000); int offset = 0;\nint %s(void){%s}";
+std::string fileTemplate[] = {"#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a; int b; int c; int d; int e; int f; int *ptr = (int*)malloc(4000); int offset = 0;\nint ", "(void){"};
 
-void fileToC(std::string content, std::string filename, bool nc)
+std::string fileToC(std::string content, bool nc)
 {
-    FILE *fileC;
     std::string functionName;
     std::string translation;
+    std::string completeTranslation;
     int x = 0;
     // Extract function name from file
     while(content[x] =! '\n')
@@ -59,12 +59,11 @@ void fileToC(std::string content, std::string filename, bool nc)
     }
     translation += functionName.c_str();
     translation += "();";
-    printf("Writing translated C code...\n");
-    fileC = fopen(filename.c_str(), "w");
-    // Write the file
-    fprintf(fileC, fileTemplate.c_str(), functionName.c_str(), translation.c_str());
-    // Close the file
-    fclose(fileC);
+    completeTranslation += fileTemplate[0];
+    completeTranslation += functionName;
+    completeTranslation += fileTemplate[1];
+    completeTranslation += translation;
+    completeTranslation += "}";
 }
 std::string commandToC(char command, bool nc)
 {

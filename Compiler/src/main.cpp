@@ -3,6 +3,9 @@
 #include <cstdlib>
 #include <cstdio>
 #include "Compiler\include\C_Conversion.hpp"
+extern "C" {
+#include "Compiler\include\Compile.h"
+}
 
 std::string args[] = 
 { 
@@ -19,7 +22,7 @@ std::string args[] =
 int main(int argc, char **argv)
 {
     std::string inputFileName;
-    std::string outputFileName = "out.c";
+    std::string outputFileName = "a.exe";
     std::string Content; 
     FILE *inputFile = fopen(inputFileName.c_str(), "r");
     char *contentBuffer;
@@ -48,11 +51,11 @@ int main(int argc, char **argv)
     }
     std::cout <<  "Reading input file...\n";
     fscanf(inputFile, "%s", contentBuffer);
-    std::cout << "Reading input file...\n";
     Content +=  *contentBuffer;
     if(segfault) Content += '~';
-    fileToC(Content, outputFileName, nc);
-    fclose (inputFile);
+    std::cout << "Writing executible file...\n";
+    compile(fileToC(Content, nc).c_str(), outputFileName.c_str());
+    fclose(inputFile);
     if(segfault)
     {
         std::cout << "Exiting by triggering a segfault, have fun on the other side...\n";

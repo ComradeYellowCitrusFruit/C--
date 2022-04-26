@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "libtcc.h"
 #include "Compile.h"
 
 int compile(char *C, char *outputName)
@@ -15,7 +16,6 @@ int compile(char *C, char *outputName)
         printf("Compilation error !\n");
         return 1;
     }
-    tcc_relocate(state, TCC_RELOCATE_AUTO);
     tcc_output_coff(state, outputFile);
     fclose(outputFile);
     tcc_delete(state);

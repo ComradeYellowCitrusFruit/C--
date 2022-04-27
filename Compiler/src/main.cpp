@@ -2,9 +2,10 @@
 #include <string>
 #include <cstdlib>
 #include <cstdio>
-#include "Compiler\include\C_Conversion.hpp"
+#include <cstring>
+#include "C_Conversion.hpp"
 extern "C" {
-#include "Compiler\include\Compile.h"
+#include "Compile.h"
 }
 
 std::string args[8] = 
@@ -54,7 +55,9 @@ int main(int argc, char **argv)
     Content +=  *contentBuffer;
     if(segfault) Content += '~';
     std::cout << "Writing executible file...\n";
-    compile(&(char)*fileToC(Content, nc).c_str(), &(char)*outputFileName.c_str());
+    char *CFile = (char*)fileToC(Content, nc).c_str();
+    char *OutputFilename = (char*)outputFileName.c_str();
+    compile(CFile, OutputFilename);
     fclose(inputFile);
     if(segfault)
     {

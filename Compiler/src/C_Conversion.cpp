@@ -1,6 +1,7 @@
 #include <string>
 #include <cstdlib>
 #include <cstdio>
+#include <cstring>
 #include "C_Conversion.hpp"
 
 char commands[] = { '-', '+', '*', '\\', '>', '<', '(', ')', '{', '}', '@', '$', '!', '?', '~', 'a', 'b', 'c', 'd', 'e', 'f', 'A', 'B', 'C', 'D', 'E', 'F' };
@@ -64,6 +65,7 @@ std::string fileToC(std::string content, bool nc)
     completeTranslation += fileTemplate[1];
     completeTranslation += translation;
     completeTranslation += "}";
+    return completeTranslation; 
 }
 std::string commandToC(char command, bool nc)
 {

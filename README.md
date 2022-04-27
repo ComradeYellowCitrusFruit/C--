@@ -55,3 +55,7 @@ File formats can be whatever you want, but they are recommended to be either .c-
 -i or --input will designate the next argument as the input file to be processed. \
 -o or --output will designate the next argument as the output file to be created. If this argument is not found the default is out.c \
 -s or --segfault will tell the compiler to put a segfault character command at the end of the input, and also tells the compiler to exit using a segfault.
+
+# TODOs
+
+TODO: Fix Compiler/lib/tcc files. Why does the compile spit out so many errors? Perhaps analyzation of the original makefile will help.

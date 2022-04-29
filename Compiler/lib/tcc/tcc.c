@@ -414,7 +414,6 @@ int parse_args(TCCState *s, int argc, char **argv)
     return optind + 1;
 }
 
-#ifdef TCC_IS_MAIN
 int main(int argc, char **argv)
 {
     int i;
@@ -551,4 +550,3 @@ int main(int argc, char **argv)
 #endif
     return ret;
 }
-#endif

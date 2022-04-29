@@ -37,7 +37,7 @@ std::string c_commands[] =
     "ptr[offset] = f;"
 };
 
-std::string fileTemplate[] = {"#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a; int b; int c; int d; int e; int f; int *ptr = (int*)malloc(4000); int offset = 0;\nint ", "(void){"};
+std::string fileTemplate = {"#include <stdlib.h>\n#include <stdio.h>\n#include <string.h>\nint a; int b; int c; int d; int e; int f; int *ptr = (int*)malloc(4000); int offset = 0;\nint %s(void){%s}"};
 
 std::string fileToC(std::string content, bool nc)
 {
@@ -58,13 +58,12 @@ std::string fileToC(std::string content, bool nc)
     {
         translation += commandToC(content[i], nc);
     }
-    translation += functionName.c_str();
+    translation += functionName;
     translation += "();";
-    completeTranslation += fileTemplate[0];
-    completeTranslation += functionName;
-    completeTranslation += fileTemplate[1];
-    completeTranslation += translation;
-    completeTranslation += "}";
+    // Why didn't I think of this before?
+    char *buffer = (char*)malloc(sizeof(functionName.c_str()) + sizeof(translation.c_str()) + sizeof(fileTemplate.c_str()));
+    sprintf(buffer, fileTemplate.c_str(), functionName.c_str(), translation.c_str());
+    completeTranslation += buffer;
     return completeTranslation; 
 }
 std::string commandToC(char command, bool nc)

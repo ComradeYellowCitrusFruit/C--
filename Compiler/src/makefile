@@ -19,4 +19,4 @@ $(LIB)/tcc/libtcc.a:
 	$(MAKE) -C $(LIB)/tcc
 
 clean:
-	rm -f $(BIN)*.o
+	./clean
